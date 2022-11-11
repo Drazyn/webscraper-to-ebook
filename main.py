@@ -3,6 +3,8 @@
 MainPage_URL = "https://www.isekailunatic.com/tsuki-ga-michibiku-isekai-douchuu/"
 EbookTitle = "Fourth Tome: Chapters 201-208"
 EbookCover = "https://static.wikia.nocookie.net/tsukigamichibikuisekaidouchuu/images/1/18/TsukiMichi-LN-JP-v07-Cover.png"
+minChapter = 201
+maxChapter = 300
 
 ## Ending Configuration
 
@@ -76,7 +78,7 @@ for a in soup.find_all('a', href=True):
 	url = a['href']
 	
 	if chapter[8:11].isdigit():
-		if int(chapter[8:11]) > 200 and int(chapter[8:11]) < 209:
+		if int(chapter[8:11]) >= minChapter and int(chapter[8:11]) <= maxChapter:
 			chaptersUrl.append(url)
 
 get_ebook_from_urls(chaptersUrl, EbookTitle, EbookCover)
